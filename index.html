@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OEM & Distributor Contacts</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    }
+
+    h1 {
+        color: #003366;
+        margin-top: 0;
+    }
+
+    select {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        display: none;
+        border-left: 5px solid #003366;
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 6px;
+        white-space: pre-wrap;
+        line-height: 1.5;
+    }
+
+    .placeholder {
+        text-align: center;
+        color: #777;
+        margin-top: 40px;
+    }
+
+    a {
+        color: #0066cc;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>OEM & Distributor Contacts</h1>
+
+    <label><strong>Select Company:</strong></label>
+    <select id="companySelect">
+        <option value="">-- Select a Company --</option>
+        <option value="Accurpress">Accurpress</option>
+        <option value="Bystronic">Bystronic</option>
+        <option value="Capital">Capital</option>
+        <option value="Cincinnati">Cincinnati</option>
+        <option value="Delem">Delem</option>
+        <option value="Dener">Dener</option>
+        <option value="Ermak">Ermak</option>
+        <option value="Flow">Flow</option>
+        <option value="Haco">Haco</option>
+        <option value="LVD Strippit">LVD Strippit</option>
+        <option value="Mazak">Mazak</option>
+        <option value="MC Machinery">MC Machinery</option>
+        <option value="Pacific">Pacific</option>
+        <option value="Piranha">Piranha</option>
+        <option value="Prima Power">Prima Power</option>
+        <option value="Schiavi">Schiavi (Hart)</option>
+        <option value="Vaski">Vaski</option>
+    </select>
+
+    <div id="placeholder" class="placeholder">
+        Select a company to view contact information.
+    </div>
+
+    <div id="contactCard" class="card"></div>
+</div>
+
+<script>
+
+const data = {
+
+"Accurpress": `
+Service Email:
+service@capitalmachine.com
+
+All service related questions should be sent to the email above.
+They will route customers to the best resource.
+
+Offline programming questions:
+• Safan for Autopol
+• Accurpress for Vision control programming
+`,
+
+"Bystronic": `
+No contact information currently listed.
+`,
+
+"Capital": `
+Service Email:
+service@capitalmachine.com
+
+All service related questions should be sent to the email above.
+They will route customers to the best resource.
+
+Offline programming questions:
+• Safan for Autopol
+• Accurpress for Vision control programming
+`,
+
+"Cincinnati": `
+Applications Team Email:
+vmpapps@e-ci.com
+
+Team members:
+• Riley Ealy
+• Dylan Scholtes
+
+Customers should contact the applications team through the email above.
+`,
+
+"Delem": `
+Updated 9/29/26
+
+Refer to Machine OEM for support.
+`,
+
+"Dener": `
+No contact information currently listed.
+`,
+
+"Ermak": `
+No contact information currently listed.
+`,
+
+"Flow": `
+Sean Ferguson
+Press Brake Applications Specialist
+
+Email:
+Sferguson@flowcorp.com
+
+Phone:
+425-566-0373
+`,
+
+"Haco": `
+No contact information currently listed.
+`,
+
+"LVD Strippit": `
+No contact information currently listed.
+`,
+
+"Mazak": `
+Luke Surratt
+General Manager, Customer Service
+
+Email:
+lsurratt@mazaklaser.com
+
+Phone:
+1-888-MAZAK-US
+`,
+
+"MC Machinery": `
+Main Support:
+630-616-5900
+
+Email:
+service@mcmachinery.com
+
+Staff:
+• Joseph Neuemann - Install Manager Press Brake
+• Chris Shrader - Service Manager Press Brake
+• Paul Wheeler - Customer Support Manager
+
+Customers should contact the main support line rather than individual staff.
+`,
+
+"Pacific": `
+General Service Contact
+
+Email:
+service@pacific-press.com
+
+Main Phone:
+618-262-8666
+
+Contact:
+Laramey Wiseman
+Director of Technology
+
+Email:
+lwiseman@pacific-press.com
+`,
+
+"Piranha": `
+Jevon Bauman
+Forming Specialist
+
+Handles:
+• Machine programming
+• Offline programming software
+• Machine controls
+• New/special tool setup
+`,
+
+"Prima Power": `
+Phone Support:
+800-344-7143
+
+Email Support:
+us.service@primapower.com
+
+Use the support center to create a ticket.
+Include machine serial number when requesting support.
+`,
+
+"Schiavi": `
+Timothy Sims
+Director of Operations
+
+Office:
+943-230-2205
+
+Mobile:
+470-990-3787
+`,
+
+"Vaski": `
+Primary Contact:
+Valtteri Pihlajamaki
+valtteri.pihlajamaki@vaski.com
++358 40 350 2740
+
+Service Team:
+services@vaski.com
+
+US Service Manager:
+Levi Young
+levi.young@pivatic.com
++1 331 422 9192
+`
+};
+
+const select = document.getElementById("companySelect");
+const card = document.getElementById("contactCard");
+const placeholder = document.getElementById("placeholder");
+
+select.addEventListener("change", function () {
+
+    if (!this.value) {
+        card.style.display = "none";
+        placeholder.style.display = "block";
+        return;
+    }
+
+    placeholder.style.display = "none";
+    card.style.display = "block";
+    card.textContent = data[this.value];
+});
+
+</script>
+
+</body>
+</html>
